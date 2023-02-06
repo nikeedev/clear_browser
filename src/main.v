@@ -3,6 +3,9 @@ module main
 import gg
 import gx
 import os
+import net.html
+import term
+
 
 struct App {
 mut:
@@ -17,6 +20,28 @@ const (
 )
 
 fn main() {
+
+	if os.args.len < 2 {
+
+		println(term.blue('Clear Browser- v0.1.0a'))
+		println(term.cyan('\nUsage: clear_browser <HTML source code file>.html'))
+		exit(0)
+
+	} else {
+
+		file := os.read_lines(os.args[1]) !
+		mut html_file := ""
+
+		for line in file {
+			html_file += line.trim_space()
+			println(line)
+		}
+		println(html_file)
+
+		mut doc := html.parse(html_file)
+
+		println(doc)
+	}
 	// mut pos := playlib.Vec3{5, 5, 6}
 	// mut vecs := [Vec2{5, 5}, Vec2{6, 6}, Vec2{7, 7}]
 	// pos += playlib.Vec3{10, 10, 11}
@@ -40,16 +65,14 @@ fn main() {
 		init_fn: init
 	)
 
-	// println(pos.str())
-
-	app.ctx.run()
+	//app.ctx.run()
 }
 
 fn init(mut app &App) {
 
 }
 
-[live]
+// [live]
 fn (app &App) draw() {
 	mut rect := gg.Rect{x: 40, y: 40, width: 60, height: 40}
 
@@ -64,3 +87,4 @@ fn frame(app &App) {
 	app.draw()
 	app.ctx.end()
 }
+
