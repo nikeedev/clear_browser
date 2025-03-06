@@ -1,6 +1,3 @@
-# clear_browser
+# clear_browser: The browser you wouldn't use if you hate TOML.
 
-A simple and clear browser written in V, uses `gg` and html parsers from `net.html`
-
-Built for fun but also for education, I learn the programming language as I am experimenting with its modules and so. 
-
+This browser uses TOML for fun as the website document type, and not the casual HTML.

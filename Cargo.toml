@@ -1,0 +1,9 @@
+[package]
+name = "clear_browser"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+colored = "3.0.0"
+tetra = "0.8.0"
+toml = "0.8.20"
